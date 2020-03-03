@@ -34,7 +34,8 @@ public class TwitterLanguageFilterApp {
 	    	JavaRDD<SimplifiedTweet>tweets = optionals.filter(B -> B.isPresent()).map(C->C.get());
 	    	JavaRDD<SimplifiedTweet> result = tweets.filter(ST -> lang.equals(ST.getLanguage()));
 	    	
-	    	result.saveAsTextFile(output);
+                
+	    	result.saveAsTextFile(output + "/" + input);
     	}
     	
     	long finish = System.currentTimeMillis();	//time end
